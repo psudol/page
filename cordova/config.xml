@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="rusticsquare.app1" version="0.1.0">
+  <name>App1</name>
+  <description>
+    Example Tabris.js App
+  </description>
+  <author email="34774490+psudol@users.noreply.github.com">
+    psudol
+  </author>
+  <preference name="EnableDeveloperConsole" value="$IS_DEBUG" />
+</widget>
