@@ -1,13 +1,224 @@
+
+
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en" >
+
 <head>
-<title>yea</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/x-icon" href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+  <link rel="mask-icon" type="" href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
+  <title>CodePen - Multilayered Parallax </title>
+  
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <style>
+       /* Parallax base styles
+  --------------------------------------------- */
+
+  .parallax {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-perspective: 300px;
+    perspective: 300px;  
+  }
+
+  .parallax__group {
+    position: relative;
+    height: 100vh;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+  .parallax__layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .parallax__layer--fore {
+    -webkit-transform: translateZ(90px) scale(.7);
+    transform: translateZ(90px) scale(.7);
+    z-index: 1;
+  }
+
+  .parallax__layer--base {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    z-index: 4;
+  }
+
+  .parallax__layer--back {
+    -webkit-transform: translateZ(-300px) scale(2);
+    transform: translateZ(-300px) scale(2);
+    z-index: 3;
+  }
+
+  .parallax__layer--deep {
+    -webkit-transform: translateZ(-600px) scale(3);
+    transform: translateZ(-600px) scale(3);
+    z-index: 2;
+  }
+
+/* body styles */
+
+  body, html {
+    overflow: hidden;
+  }
+
+  body {
+    font: 100% Arial;
+  }
+
+  * {
+    margin:0;
+    padding:0;
+  }
+
+  .parallax {
+    font-size: 200%;
+  }
+
+
+  /* style the groups
+  --------------------------------------------- */
+
+  #group1 {
+    z-index: 5; /* slide over group 2 */
+  }
+  
+  .group1_green {
+    position: absolute;
+    top:40%;
+    right:-10%;
+  }
+  #group2 {
+    z-index: 3; /* slide under groups 1 and 3 */
+  }
+
+  .group2_orange {
+    position: absolute;
+    left:5%;
+  }
+  .group2_yellow {
+     position: absolute;
+    top:56%;
+    right:26%;  
+  }
+
+  #group3 {
+    z-index: 4; /* slide over group 2 and 4 */
+  }
+  .group3_blueSmall {
+    position: absolute;
+    top:45%;
+    left:65%; 
+  }
+
+  .group3_red {
+    position: absolute;
+    top:80%;
+    left:42%;
+  }
+
+  #group4 {
+    z-index: 2; /* slide under group 3 and 5 */
+  }
+
+  .group4_orange {
+    position: absolute;
+    top:80%;
+    left:48%;
+  }
+
+  .group4_green {
+    position: absolute;
+    top:55%;
+    left:20%;
+  }
+
+  .credits {
+    position: absolute;
+    z-index:100;
+    bottom: 0vh;
+    top: auto;
+    font-size:80%;
+    text-align:center;
+    width: 100%;
+    background: white;
+  }
+
+    </style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
 </head>
-<body>
-<div class=''>
-  test1
-</div>
+
+<body translate="no" >
+
+    <div class="credits">Inspired by Keith Clark's article on <a href="https://keithclark.co.uk/articles/pure-css-parallax-websites/">Pure CSS Parallax Websites</a>.</div>
+
+ <div class="parallax">
+    <div id="group1" class="parallax__group">
+      <div class="parallax__layer parallax__layer--base">
+        <img src="https://www.dropbox.com/s/qck8nhhkcbmcuf2/blueSmall.png?raw=1">
+        <div class="group1_green"><img src="https://www.dropbox.com/s/p3x6d00xbkfcw2p/green.png?raw=1"></div>
+      </div>
+    </div>
+
+    <div id="group2" class="parallax__group">
+      <div class="parallax__layer parallax__layer--base">
+        <div class="group2_orange"><img src="https://www.dropbox.com/s/icjlytcdnb3xvm7/orange.png?raw=1"></div>
+      </div>
+      <div class="parallax__layer parallax__layer--back">
+        <div class="group2_blue"><img src="https://www.dropbox.com/s/0djs8e4c511g08k/blue.png?raw=1"></div>
+      </div>
+      <div class="parallax__layer parallax__layer--deep">
+        <div class="group2_yellow"><img src="https://www.dropbox.com/s/4ehrrh859ydtkbe/yellow.png?raw=1"></div>        
+      </div>
+    </div>
+
+    <div id="group3" class="parallax__group">
+      <div class="parallax__layer parallax__layer--fore">
+        <div class="group3_blueSmall"><img src="https://www.dropbox.com/s/qck8nhhkcbmcuf2/blueSmall.png?raw=1"></div>
+      </div>
+      <div class="parallax__layer parallax__layer--base">
+        <div class="group3_red"><img src="https://www.dropbox.com/s/63asusq8bd3j4lk/red.png?raw=1"></div>
+      </div>
+    </div>
+    
+   <div id="group4" class="parallax__group">
+      <div class="parallax__layer parallax__layer--base">
+        <div class="group4_orange"><img src="https://www.dropbox.com/s/icjlytcdnb3xvm7/orange.png?raw=1"></div>        
+      </div>
+      <div class="parallax__layer parallax__layer--back">
+        <div class="group4_green"><img src="https://www.dropbox.com/s/p3x6d00xbkfcw2p/green.png?raw=1"></div>      
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+
 </body>
+
 </html>
+ 
