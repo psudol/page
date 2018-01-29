@@ -1,13 +1,56 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
+<style>
+#wrapper {
+  max-width: 1520px;
+  background-color: black;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#mcontent {
+  flex: 1;
+  background-color: fuchsia;
+  min-height: 500px;
+}
+
+#rscontent, #lscontent {
+  max-width: 200px;
+  min-width: 100px;
+  background-color: red;
+}
+
+#content {
+  flex: 0 0 100%;
+  min-height: 400px;
+  text-align: center;
+  background-color: darkviolet;
+}
+
+#content > h2 {
+  color:blue;
+}
+</style>
 <title>yea</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<div class=''>
-  test1
+
+<div id="wrapper"> 
+  <div id="content">
+    <h2>AgencyGaming</h2>
+    <h3>Slogan</h3>
+    <h4>Information</h4>
 </div>
+<div id="rscontent"></div>
+<div id="mcontent">
+  <h2 style="color:white;">Hej</h2>
+</div>
+<div id="lscontent"></div>
+</div>
+  
 </body>
 </html>
