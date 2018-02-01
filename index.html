@@ -2,55 +2,29 @@
 <html lang="en-US">
 <head>
 <style>
-#wrapper {
-  max-width: 1520px;
-  background-color: #eee;
-  width: 100%;
+.flex-container {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  background-color: DodgerBlue;
 }
 
-#mcontent {
-  flex: 1;
-  background-color: #000;
-  min-height: 500px;
-}
-
-#rscontent, #lscontent {
-  max-width: 200px;
-  min-width: 100px;
-  background-color: #efefef;
-}
-
-#content {
-  flex: 0 0 100%;
-  min-height: 400px;
-  text-align: center;
-  background-color: #ccc;
-}
-
-#content > h2 {
-  color:blue;
+.flex-container>div {
+  background-color: #f1f1f1;
+  color: white;
+  width: 100px;
+  height: 100px;
 }
 </style>
-<title>yea</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
-<div id="wrapper"> 
-  <div id="content">
-    <h2>AgencyGaming</h2>
-    <h3>Slogan</h3>
-    <h4>Information</h4>
+<div class="flex-container">
+  <div></div>
 </div>
-<div id="rscontent"></div>
-<div id="mcontent">
-  <h2 style="color:white;">Hej</h2>
-</div>
-<div id="lscontent"></div>
-</div>
-  
+
+<p>test test test</p>
+
 </body>
 </html>
