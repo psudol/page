@@ -10,7 +10,7 @@
   background-color: #ffffff;
 }
 
-.flex-container > div {
+#centerBox {
   background-color: #fefefe;   
   border: 1px solid #ccc;
   ---border-radius: 4%;
@@ -26,12 +26,14 @@
   box-shadow:         inset 0 0 15px #bbb;
   justify-content: center;
   align-items: center;
+  will-change: auto;
 }
 
 .bar1{
   background: #ccc;
   width: 50%;
   height: 50%;
+  will-change: auto;
 }
 
 .topBar {
@@ -45,7 +47,7 @@
 
 <div class="flex-container">
 
-  <div style="width: 100px; height: 100px;">
+  <div id="centerBox" style="width: 100px; height: 100px;">
 	<div class="bar1"></div>
   </div> 
 
@@ -53,7 +55,7 @@
 
 </body>
 </html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
 
 <script>
@@ -61,8 +63,11 @@
 $(document).on("click",".flex-container > div",function(){
   
   TweenLite.to($(".bar1"),1, {rotation:"+=45"});
-  $(this).before("<div class='topBar'>12345</div>");
+  $(this).before("<div class='topBar' style='display: none;'>12345</div>");
+  TweenLite.to(".topBar", 2, {display:"block"});
   
 });	
+
+var tl = new TimelineMax({paused: true});
   
 </script>
