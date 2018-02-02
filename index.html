@@ -10,10 +10,10 @@
   background-color: #ffffff;
 }
 
-.flex-container>div {
-  background-color: #efefef;   
+.flex-container > div {
+  background-color: #fefefe;   
   border: 1px solid #ccc;
-  border-radius: 4%;
+  ---border-radius: 4%;
   color: white;
   width: 100px;
   height: 100px;
@@ -21,21 +21,23 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+  -moz-box-shadow:    inset 0 0 15px #bbb;
+  -webkit-box-shadow: inset 0 0 15px #bbb;
+  box-shadow:         inset 0 0 15px #bbb;
+  justify-content: center;
+  align-items: center;
 }
 
 .bar1{
-  width: 80%;
-  height: 5%;  
-  border-radius: 30%;
-  background: #444;
+  background: #ccc;
+  width: 50%;
+  height: 50%;
 }
 
-.bar2{
-  background-color: #000;
-  width: 80%;
-  height: 0.001%;  
-  border: 0px solid #000;
+.topBar {
+	color: #333;
 }
+
 
 </style>
 </head>
@@ -43,38 +45,24 @@
 
 <div class="flex-container">
 
-  <div style="width: 32px; height: 32px; margin: 20px;">
-    <div class="bar2"></div>
+  <div style="width: 100px; height: 100px;">
 	<div class="bar1"></div>
-	<div class="bar1"></div>
-	<div class="bar1"></div>
-	<div class="bar2"></div>
   </div> 
 
-  <div>
-    <div class="bar2"></div>
-	<div class="bar1"></div>
-	<div class="bar1"></div>
-	<div class="bar1"></div>
-	<div class="bar2"></div>
-  </div>
-  
-  <div style="width: 200px; height: 200px; margin: 20px;">
-    <div class="bar2"></div>
-	<div class="bar1"></div>
-	<div class="bar1"></div>
-	<div class="bar1"></div>
-	<div class="bar2"></div>
-  </div>  
-    
-  <div style="width: 300px; height: 300px; margin: 20px;">
-    <div class="bar2"></div>
-	<div class="bar1"></div>
-	<div class="bar1"></div>
-	<div class="bar1"></div>
-	<div class="bar2"></div>
-  </div> 
 </div>
 
 </body>
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+
+<script>
+
+$(document).on("click",".flex-container > div",function(){
+  
+  TweenLite.to($(".bar1"),1, {rotation:"+=45"});
+  $(this).before("<div class='topBar'>12345</div>");
+  
+});	
+  
+</script>
