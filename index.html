@@ -10,6 +10,11 @@
   background-color: #ffffff;
 }
 
+#inner-container{
+  border: 0px solid red;
+  ---overflow:hidden;
+}
+
 #centerBox {
   background-color: #fefefe;   
   border: 1px solid #ccc;
@@ -37,37 +42,50 @@
 }
 
 .topBar {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
 	color: #333;
+	border: 1px solid #ccc;
+	padding: 4px;
+	float: left;
 }
 
 
 </style>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
 <div class="flex-container">
 
+<div id='inner-container'>
+
   <div id="centerBox" style="width: 100px; height: 100px;">
 	<div class="bar1"></div>
   </div> 
+  
+</div>
 
 </div>
 
 </body>
 </html>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+<script type="text/javascript" language="javascript" src="includes/topmenu.json"></script>
 
 <script>
 
-$(document).on("click",".flex-container > div",function(){
+var linkcount = 0;
+
+$(document).on("click","#centerBox",function(){
   
   TweenLite.to($(".bar1"),1, {rotation:"+=45"});
-  $(this).before("<div class='topBar' style='display: none;'>12345</div>");
-  TweenLite.to(".topBar", 2, {display:"block"});
+  $(this).before("<div class='topBar' style='opacity: -1.0; width: 0px'>" + topmenu.start.links[linkcount].link + " (" + topmenu.start.links[linkcount].val + ")" + "</div>");
+  TweenMax.to(".topBar", 2, {css:{alpha:1, width: 100},ease: Expo.easeOut});
+  linkcount++;
   
 });	
-
-var tl = new TimelineMax({paused: true});
   
 </script>
